@@ -8,7 +8,7 @@
 
 ## Original chat body auto-created by salesforce:
 
-| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Chat-body-format.png" alt="Chat body format" style="width: 400px;"/> |
+| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Original-Chat-Body.JPG" alt="Chat body format" style="width: 400px;"/> |
 |:--:| 
 | *Original Chat body format* |
 
