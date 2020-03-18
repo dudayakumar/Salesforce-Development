@@ -20,6 +20,6 @@
 
 ### Details for formatting chat body:
 
-| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Formatting-details.png" alt="Chat body format" style="width: 400px;"/> |
+| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Formatting-details.JPG" alt="Chat body format" style="width: 400px;"/> |
 |:--:| 
 | *Formatting details* |
