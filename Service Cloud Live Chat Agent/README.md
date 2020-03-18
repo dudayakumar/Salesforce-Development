@@ -14,7 +14,7 @@
 
 ### The chat body should be modified to resemble the format as shown below:
 
-| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Chat-body-format.png" alt="Chat body format" style="width: 400px;"/> |
+| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Chat-body-format.JPG" alt="Chat body format" style="width: 400px;"/> |
 |:--:| 
 | *Formatted Chat body* |
 
