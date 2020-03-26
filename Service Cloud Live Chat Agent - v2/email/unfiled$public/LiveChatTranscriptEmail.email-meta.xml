@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <available>true</available>
+    <description>Visual force email template with custom styling of chat body</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Live Chat Transcript Email</name>
+    <style>none</style>
+    <subject>Thank you for reaching out to us!</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

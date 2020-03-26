@@ -1,0 +1,31 @@
+<apex:component controller="LiveChatTranscriptEmailController" access="global">
+  <apex:attribute name="chatId" type="Id" description="Id of Live Chat Transctipt" assignTo="{!cId}"/>
+  <p>
+    Your Chat Transcript can be found below.
+  </p>
+  <p>
+    <apex:image id="Logo" value="{!LogoUrl}" />
+  </p>
+  <p>
+      Chat Started: {!timeStamp}
+  </p>
+  <p>
+      Team Member: {!Agent}
+  </p>
+  <hr/>
+  <p padding="2px 0" margin= "20px auto">
+      <apex:outputText escape="false" value="{!BodyCustom}"/>
+  </p>
+  <hr/>
+  <p>
+      If you have any further questions, please contact us at 
+      <a href="mailto:hello@saje.com">
+          hello@saje.com
+      </a> 
+      or 
+      <a href="tel:1-877-275-7253">
+          1-877-275-7253
+      </a>
+      .
+  </p>
+</apex:component>

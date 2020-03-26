@@ -1,0 +1,62 @@
+<messaging:emailTemplate subject="Thank you for reaching out to us!" recipientType="Contact" relatedToType="LiveChatTranscript">
+    <messaging:htmlEmailBody >
+        <html>
+            <style type="text/css">
+                body {
+                    font-family: serif; 
+                    size: 10pt;
+                }
+
+                hr {
+                    display: block;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-style: inset;
+                    border-width: 1px;
+                    color : #767676;
+                }
+
+                .padded-multiline { 
+                    line-height: 1.4; 
+                    padding: 2px 0; 
+                    width: 400px;
+                    margin: 20px auto;
+                }
+            </style>
+            <body>
+                <c:LiveChatTranscript chatId="{!relatedTo.Id}"/>
+                <!--<p>
+                    Your Chat Transcript can be found below.
+                </p>
+                <hr/>
+                <p>
+                    <apex:image id="Logo" value="{!relatedTo.LogoURL__c}" />
+                </p>
+                <p>
+                    Chat Started: {!relatedTo.Timestamp__c}
+                </p>
+                <p>
+                    Team Member: {!relatedTo.Agent__c}
+                </p>
+                <hr/>
+                <p padding="2px 0" margin= "20px auto">
+                    <apex:outputText escape="false" value="{!relatedTo.BodyCustom__c}"/>
+                </p>
+                <hr/>
+                <p>
+                    If you have any further questions, please contact us at 
+                    <a href="mailto:hello@saje.com">
+                        hello@saje.com
+                    </a> 
+                    or 
+                    <a href="tel:1-877-275-7253">
+                        1-877-275-7253
+                    </a>
+                    .
+                </p>-->
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>
