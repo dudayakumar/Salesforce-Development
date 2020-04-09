@@ -1,0 +1,373 @@
+<template>
+  <lightning-card title="Portfolios">
+          <lightning-button
+              label={toggleSaveLabel}
+              icon-name="utility:save"
+              slot="actions"
+              onclick={handleSave}>
+          </lightning-button>
+          <lightning-button
+              label="Cancel"
+              icon-name="utility:clear"
+              slot="actions"
+              onclick={handleCancel}>
+          </lightning-button>
+
+      <div class="slds-p-around_xx-small">
+          <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols">
+              <thead>
+                  <tr class="slds-line-height_reset">
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Equity Target">Equity</div>
+                          <div class="slds-truncate" style="text-align:center" title="Equity Target">Target</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Bond Target">Bond</div>
+                          <div class="slds-truncate" style="text-align:center" title="Bond Target">Target</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Cash Target">Cash</div>
+                          <div class="slds-truncate" style="text-align:center" title="Cash Target">Target</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Registration Type">Registration</div>
+                          <div class="slds-truncate" style="text-align:center" title="Registration Type">Type</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Fee Type">Fee</div>
+                          <div class="slds-truncate" style="text-align:center" title="Fee Type">Type</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Fee Schedule">Fee</div>
+                          <div class="slds-truncate" style="text-align:center" title="Fee Schedule">Schedule</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Discretionary">Discretionary</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Billing In">Billing</div>
+                          <div class="slds-truncate" style="text-align:center" title="Billing In">In</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Proxy Voting by Us">Proxy Voting</div>
+                          <div class="slds-truncate" style="text-align:center" title="Proxy Voting by Us">by Us</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Revenue Source">Revenue</div>
+                          <div class="slds-truncate" style="text-align:center" title="Revenue Source">Source</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Custodian">Custodian</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Who Receives Reporting">Who Receives</div>
+                          <div class="slds-truncate" style="text-align:center" title="Who Receives Reporting">Reporting</div>
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Managed">Managed</div> 
+                      </th>
+                      <th class="slds-size_1-of-14" scope="col">
+                          <div class="slds-truncate" style="text-align:center" title="Restricted Data">Restricted</div>
+                          <div class="slds-truncate" style="text-align:center" title="Restricted Data">Data</div>
+                      </th>
+                  </tr>
+              </thead>
+
+              <tbody>
+                  
+                  <template for:each={pfList} for:item="item" for:index="indexVar">
+                      <tr key={item.Id} class="slds-hint-parent" ondblclick={onDoubleClickEdit}>
+                          <td role="gridcell" class="slds-size_1-of-14 slds-cell-edit" data-label="Equity Target">
+                              <div class="slds-truncate" style="text-align:center" title={item.Equity_Target__c}>
+                                  <template if:false={isEdited}>
+                                      <lightning-formatted-number value={item.Equity_Target__c} label={item.Equity_Target__c}></lightning-formatted-number>
+                                  </template>
+                                  <template if:true={isEdited}>
+                                      <lightning-input 
+                                          data-id="Equity_Target__c" 
+                                          data-key={item.Id} 
+                                          name="Equity_Target__c" 
+                                          label="Equity_Target__c" 
+                                          value={item.Equity_Target__c} 
+                                          type="number"
+                                          variant="label-hidden" 
+                                          required=""
+                                          onchange={handleNumberChange}>
+                                      </lightning-input>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Bond Target">
+                              <div class="slds-truncate" style="text-align:center" title={item.Bond_Target__c}>
+                                  <template if:false={isEdited}>
+                                      <lightning-formatted-number value={item.Bond_Target__c} label={item.Bond_Target__c}></lightning-formatted-number>
+                                  </template>
+                                  <template if:true={isEdited}>
+                                      <lightning-input 
+                                          data-id="Bond_Target__c" 
+                                          data-key={item.Id} 
+                                          name="Bond_Target__c" 
+                                          label="Bond_Target__c" 
+                                          value={item.Bond_Target__c} 
+                                          type="number"
+                                          variant="label-hidden" 
+                                          required=""
+                                          onchange={handleNumberChange}>
+                                      </lightning-input>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Cash Target">
+                              <div class="slds-truncate" style="text-align:center" title={item.Cash_Target__c}>
+                                  <template if:false={isEdited}>
+                                      <lightning-formatted-number value={item.Cash_Target__c} label={item.Cash_Target__c}></lightning-formatted-number>
+                                  </template>
+                                  <template if:true={isEdited}>
+                                      <lightning-input 
+                                          data-id="Cash_Target__c" 
+                                          data-key={item.Id} 
+                                          name="Cash_Target__c" 
+                                          label="Cash_Target__c" 
+                                          value={item.Cash_Target__c} 
+                                          type="number"
+                                          variant="label-hidden" 
+                                          required=""
+                                          onchange={handleNumberChange}>
+                                      </lightning-input>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Regitration Type">
+                              <div title={item.Registration_Type__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          {item.Registration_Type__c}
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <c-picklist 
+                                          data-id="Registration_Type__c"
+                                          unique-key={item.Id} 
+                                          object-api-name="Portfolio__c" 
+                                          record-type-id={item.RecordTypeId} 
+                                          selected-value={item.Registration_Type__c}  
+                                          pick-listfield-api-name="Registration_Type__c" 
+                                          variant="label-hidden"
+                                          required=""
+                                          onpicklistchange={handlePicklistChange}>
+                                      </c-picklist>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Fee Type">
+                              <div title={item.Fee_Type__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          {item.Fee_Type__c}
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <c-picklist 
+                                          data-id="Fee_Type__c"
+                                          unique-key={item.Id} 
+                                          object-api-name="Portfolio__c" 
+                                          record-type-id={item.RecordTypeId} 
+                                          selected-value={item.Fee_Type__c}  
+                                          pick-listfield-api-name="Fee_Type__c" 
+                                          variant="label-hidden"
+                                          onpicklistchange={handlePicklistChange}>
+                                      </c-picklist>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Fee Schedule">
+                              <div title={item.Fee_Schedule__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          <lightning-formatted-text value={item.Fee_Schedule__c} label={item.Fee_Schedule__c}></lightning-formatted-text>
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <lightning-input 
+                                          data-id="Fee_Schedule__c" 
+                                          data-key={item.Id} 
+                                          name="Fee_Schedule__c" 
+                                          label="Fee_Schedule__c" 
+                                          value={item.Fee_Schedule__c} 
+                                          variant="label-hidden" 
+                                          onchange={handleTextChange}>
+                                      </lightning-input>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Discretionary">
+                              <div title={item.Discretionary__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          {item.Discretionary__c}
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <c-picklist 
+                                          data-id="Discretionary__c"
+                                          unique-key={item.Id} 
+                                          object-api-name="Portfolio__c" 
+                                          record-type-id={item.RecordTypeId} 
+                                          selected-value={item.Discretionary__c}  
+                                          pick-listfield-api-name="Discretionary__c" 
+                                          variant="label-hidden"
+                                          onpicklistchange={handlePicklistChange}>
+                                      </c-picklist>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Billing In">
+                              <div title={item.Billing_In__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          {item.Billing_In__c}
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <c-picklist 
+                                          data-id="Billing_In__c"
+                                          unique-key={item.Id} 
+                                          object-api-name="Portfolio__c" 
+                                          record-type-id={item.RecordTypeId} 
+                                          selected-value={item.Billing_In__c}  
+                                          pick-listfield-api-name="Billing_In__c" 
+                                          variant="label-hidden"
+                                          onpicklistchange={handlePicklistChange}>
+                                      </c-picklist>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Proxy Vote By Us">
+                              <div title={item.Proxy_Voting_by_Us__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          {item.Proxy_Voting_by_Us__c}
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <c-picklist 
+                                          data-id="Proxy_Voting_by_Us__c"
+                                          unique-key={item.Id} 
+                                          object-api-name="Portfolio__c" 
+                                          record-type-id={item.RecordTypeId} 
+                                          selected-value={item.Proxy_Voting_by_Us__c}  
+                                          pick-listfield-api-name="Proxy_Voting_by_Us__c" 
+                                          variant="label-hidden"
+                                          onpicklistchange={handlePicklistChange}>
+                                      </c-picklist>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Revenue Source">
+                              <div title={item.Revenue_Source__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          {item.Revenue_Source__c}
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <c-picklist 
+                                          data-id="Revenue_Source__c"
+                                          unique-key={item.Id} 
+                                          object-api-name="Portfolio__c" 
+                                          record-type-id={item.RecordTypeId} 
+                                          selected-value={item.Revenue_Source__c}  
+                                          pick-listfield-api-name="Revenue_Source__c" 
+                                          variant="label-hidden"
+                                          onpicklistchange={handlePicklistChange}>
+                                      </c-picklist>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Custodian">
+                              <div title={item.Custodian__r.Name}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                        <template if:false={isEdited}> 
+                                            {item.Custodian__r.Name}
+                                        </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                    <lightning-record-edit-form object-api-name="Portfolio__c" id={item.Id}>
+                                        <lightning-input-field 
+                                            name={item.Id} 
+                                            value={item.Custodian__c} 
+                                            field-name="Custodian__c" 
+                                            onchange={handleChange}>
+                                        </lightning-input-field>
+                                    </lightning-record-edit-form>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Who Receives Reporting">
+                              <div title={item.Who_Receives_Reporting__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          <lightning-formatted-text value={item.Who_Receives_Reporting__c} label={item.Who_Receives_Reporting__c}></lightning-formatted-text>
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <lightning-input 
+                                          data-id="Who_Receives_Reporting__c" 
+                                          data-key={item.Id} 
+                                          name="Who_Receives_Reporting__c" 
+                                          label="Who_Receives_Reporting__c" 
+                                          value={item.Who_Receives_Reporting__c} 
+                                          variant="label-hidden" 
+                                          onchange={handleTextChange}>
+                                      </lightning-input>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_0.5-of-12" data-label="Managed">
+                              <div title={item.ManagedNew__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          {item.ManagedNew__c}
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <c-picklist 
+                                          data-id="ManagedNew__c"
+                                          unique-key={item.Id} 
+                                          object-api-name="Portfolio__c" 
+                                          record-type-id={item.RecordTypeId} 
+                                          selected-value={item.ManagedNew__c}  
+                                          pick-listfield-api-name="ManagedNew__c" 
+                                          variant="label-hidden"
+                                          onpicklistchange={handlePicklistChange}>
+                                      </c-picklist>
+                                  </template>
+                              </div>
+                          </td>
+                          <td role="gridcell" class="slds-size_1-of-14" data-label="Restricted Data">
+                              <div title={item.Restricted_Data__c}>
+                                  <div class="slds-truncate" style="text-align:center">
+                                      <template if:false={isEdited}>
+                                          <lightning-formatted-text value={item.Restricted_Data__c} label={item.Restricted_Data__c}></lightning-formatted-text>
+                                      </template>
+                                  </div>
+                                  <template if:true={isEdited}>
+                                      <lightning-input 
+                                          data-id="Restricted_Data__c" 
+                                          data-key={item.Id} 
+                                          name="Restricted_Data__c" 
+                                          label="Restricted_Data__c" 
+                                          value={item.Restricted_Data__c} 
+                                          variant="label-hidden" 
+                                          onchange={handleTextChange}>
+                                      </lightning-input>
+                                  </template>
+                              </div>
+                          </td>
+                      </tr>
+                  </template>
+              </tbody>
+          </table>
+      </div>
+  </lightning-card>
+</template>
