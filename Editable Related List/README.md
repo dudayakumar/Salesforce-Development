@@ -4,13 +4,13 @@
 
 ### The list originally appears in read-only mode: 
 
-| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Read-only-mode.JPG" alt="mail Chat transcript button - VF" style="width: 400px;"/> |
+| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Editable%20Related%20List/screenshots/Read-only-mode.JPG" alt="Read-only" style="width: 400px;"/> |
 |:--:| 
 | *Read-only mode Related List* |
 
 ### Double clicking on any field will render the fields in editable mode:
 
-| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Service%20Cloud%20Live%20Chat%20Agent/screenshots/Editable-mode.JPG" alt="Chat body format" style="width: 400px;"/> |
+| <img src="https://github.com/dudayakumar/Salesforce-Development/blob/master/Editable%20Related%20List/screenshots/Editable-mode.JPG" alt="Editable mode" style="width: 400px;"/> |
 |:--:| 
 | *Editable-mode Related List* |
 
